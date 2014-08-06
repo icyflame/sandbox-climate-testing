@@ -1,0 +1,42 @@
+<?php
+
+session_start();
+
+// print_r($_SESSION);
+
+if(!isset($_SESSION['loggedin'])){
+
+	$url = site_url('auth/');
+
+	// echo 'Not logged in.';
+
+	Header("Refresh:0, url='$url'");
+	die;
+}
+
+?>
+<link rel="stylesheet" href="<?php echo base_url().'bootstrap/bootstrap.min.css'; ?>">
+<script src="<?php echo base_url().'bootstrap/bootstrap.min.js'; ?>"></script>
+
+<style>
+
+</style>
+
+<hr/>
+
+<div class="container" style="margin-left: 20px; margin-right: 20px; color: #777">
+
+<h4 style="float: left !important">Sponsorship Portal ( Logged in as <?php echo $this->session->userdata('username') ?>) </h4>
+
+<ul class="nav nav-pills" style="float: right !important">
+
+	<li><a href="<?php echo site_url('member/specificYear/') ?>">Networking Home</a></li>
+	<li><a href="<?php echo site_url('sponscont/') ?>">Sponsorship Home</a></li>
+	<li><a href="<?php echo site_url('sponscont/addspons') ?>">Add Sponsor</a></li>
+	<li><a href="<?php echo site_url('auth/logout') ?>">Logout</a></li>
+
+</ul>
+
+</div>
+
+<hr/>
